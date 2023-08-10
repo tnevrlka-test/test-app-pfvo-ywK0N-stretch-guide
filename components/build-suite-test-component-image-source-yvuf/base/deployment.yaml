@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: build-suite-test-component-image-source-yvuf
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: build-suite-test-component-image-source-yvuf
+    app.kubernetes.io/part-of: test-app-pfvo
+  name: build-suite-test-component-image-source-yvuf
+spec:
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: build-suite-test-component-image-source-yvuf
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: build-suite-test-component-image-source-yvuf
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/busybox-loop@sha256:f698f1f2cf641fe9176d2a277c9052d872f6b1c39e56248a1dd259b96281dda9
+        imagePullPolicy: Always
+        name: container-image
+        ports:
+        - containerPort: 8081
+        resources: {}
+status: {}
